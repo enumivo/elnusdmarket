@@ -78,7 +78,7 @@ void ex::sell(const currency::transfer &transfer) {
   usd_supply = usd_supply/10000;
 
   //y = 100k / sqrt(x)
-  double sell = 200000*(sqrt(usd_supply+received)-sqrt(usd_supply));
+  double sell = 200000*(sqrt(usd_supply)-sqrt(usd_supply-received));
 
   auto to = transfer.from;
 
