@@ -36,8 +36,8 @@ void ex::buy(const currency::transfer &transfer) {
 
   usd_supply = usd_supply/10000;
 
-  double buy = received / 1000;//usd_supply*(exp(received/eln_balance)-1);
-
+  //y = 100k / sqrt(x)
+  double buy = pow((received/200000)+sqrt(usd_supply),2)-usd_supply;
 
   auto to = transfer.from;
 
@@ -77,7 +77,8 @@ void ex::sell(const currency::transfer &transfer) {
 
   usd_supply = usd_supply/10000;
 
-  double sell = received * 1000;//eln_balance*log((usd_supply+received)/usd_supply);
+  //y = 100k / sqrt(x)
+  double sell = 200000*(sqrt(usd_supply+received)-sqrt(usd_supply));
 
   auto to = transfer.from;
 
